@@ -1,4 +1,4 @@
-package com.jorchdev.poketeams.pokechat.model;
+package com.jorchdev.poketeams.pokechat.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;

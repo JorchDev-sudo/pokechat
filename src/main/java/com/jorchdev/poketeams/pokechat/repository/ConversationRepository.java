@@ -1,6 +1,6 @@
-package com.jorchdev.poketeams.pokechat.repositories;
+package com.jorchdev.poketeams.pokechat.repository;
 
-import com.jorchdev.poketeams.pokechat.model.Conversation;
+import com.jorchdev.poketeams.pokechat.domain.Conversation;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Flux;
 
