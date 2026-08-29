@@ -8,5 +8,5 @@ import reactor.core.publisher.Flux;
 import java.util.UUID;
 
 public interface MessageRepository extends ReactiveCrudRepository<Message, UUID> {
-    Flux<Message> findAllBy(Pageable pageable);
+    Flux<Message> findAllByConversationId(UUID conversationId, Pageable pageable);
 }
