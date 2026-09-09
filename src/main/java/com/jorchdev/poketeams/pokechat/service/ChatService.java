@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -40,20 +41,27 @@ public class ChatService {
         return savedMessage;
     }
 
+    public Mono<Conversation> createConversation(List<UUID> participantsIds){
+        Conversation conversation = new Conversation(participantsIds);
+
+        return conversationRepository.save(conversation);
+    }
+
     public Flux<Message> subscribeToConversation(UUID participantId, UUID conversationId){
         Flux<Message> result =  conversationRepository.findById(conversationId).flatMapMany(
-                (conversation) ->
-                {
+                (conversation) -> {
                     if (!conversation.getParticipantIds().contains(participantId)) {
                         return Flux.error(new AuthorizationException("Authorization Denied"));
                     }
 
-                    return messagePublisher.subscribe(conversation.getId());
+                    return messagePublisher
+                            .subscribe(conversation.getId());
                 }
         );
 
         return result;
     }
+
 
     public Flux<Message> getMessages(UUID conversationId, Pageable pageable){
         return messageRepository.findAllByConversationId(conversationId, pageable);
