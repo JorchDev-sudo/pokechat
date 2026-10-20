@@ -31,3 +31,20 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### AI factory / agent files ###
+# AI/agent workflow files used by this repo's factory tooling
+.opencode/
+reports/
+scripts/
+specs/
+work/
+AGENTS.md
+opencode.jsonc
+
+# Conservative safety net for forgotten AI-tooling files
+CLAUDE.md
+.claude/
+.cursor/
+.aider*
+
