@@ -2,16 +2,24 @@ spring:
   application:
     name: pokechat
 
-  jpa:
-    hibernate:
-      ddl-auto=none
+  graphql:
+    websocket:
+      path: /graphql
 
-  
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME}
+    username: ${POSTGRE_USER}
+    password: ${POSTGRE_PASSWORD}
 
   flyway:
-    enabled=true
+    enabled: true
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME}
+    user: ${POSTGRE_USER}
+    password: ${POSTGRE_PASSWORD}
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
 
+server:
+  port: 8082

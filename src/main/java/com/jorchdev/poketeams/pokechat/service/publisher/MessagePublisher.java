@@ -1,4 +1,4 @@
-package com.jorchdev.poketeams.pokechat.service;
+package com.jorchdev.poketeams.pokechat.service.publisher;
 
 import com.jorchdev.poketeams.pokechat.domain.Message;
 import org.springframework.stereotype.Service;
