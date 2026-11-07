@@ -1,4 +1,4 @@
-package com.jorchdev.poketeams.pokechat.components;
+package com.jorchdev.poketeams.pokechat.components.graphql;
 
 import com.jorchdev.poketeams.pokechat.exceptions.ForbiddenException;
 import graphql.GraphQLError;
