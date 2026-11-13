@@ -1,8 +1,7 @@
-create extension if not exists pgcrypto;
-
 create table conversations (
                                id uuid primary key default gen_random_uuid(),
-                               created_at timestamptz not null default now()
+                               created_at timestamptz not null default now(),
+                               owner_id uuid not null
 );
 
 create table conversation_participants (
